@@ -15,6 +15,8 @@ namespace ColorLab
 {
     public partial class Form1 : Form
     {
+        Form form_processando = new Form2();
+
         Bitmap imagemcarregada;
         String arquivo;
 
@@ -48,7 +50,22 @@ namespace ColorLab
 
         }
 
-       
+        private void desativaBotoes(Form form)
+        {
+            var botoes = form.Controls.OfType<System.Windows.Forms.Button>();
+            foreach (var botao in botoes) { botao.Enabled = false; }
+            form_processando.StartPosition = FormStartPosition.CenterScreen;
+            form_processando.Show();
+            form_processando.Refresh();
+        }
+
+        private void ativaBotoes(Form form)
+        {
+            var botoes = form.Controls.OfType<System.Windows.Forms.Button>();
+            foreach (var botao in botoes) { botao.Enabled = true; }
+            form_processando.Hide();
+        }
+
 
         private void updateColors()
         {
@@ -71,6 +88,8 @@ namespace ColorLab
             panel5.BackColor = Color.FromArgb(lum, lum, lum);
             label5.Text = lum.ToString();
         }
+
+       
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -102,28 +121,44 @@ namespace ColorLab
         private void button1_Click(object sender, EventArgs e)
         {
            transform(0,0,0);
-           
         }
 
         private void transform(int r, int g, int b)
         {
+            desativaBotoes(this);
+            
             try
             {
+               
                 // we pull the bitmap from the image
                 Bitmap bmp = (Bitmap)imagemcarregada;
 
-                // we change some picels
+                // we change some pixels
                 for (int y = 0; y < bmp.Height; y++)
                     for (int x = 0; x < bmp.Width; x++)
                     {
                         Color c = bmp.GetPixel(x, y);
                         int media = (c.R + c.G + c.B) / 3;
-                        bmp.SetPixel(x, y, Color.FromArgb(media | r, media |g, media | b));
+                        if (r+g+b == 765)
+                        {
+                            bmp.SetPixel(x, y, Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B));
+                        }
+                        else
+                        {
+                            bmp.SetPixel(x, y, Color.FromArgb(media | r, media | g, media | b));
+                        }
                     }
-                // we need to re-assign the changed bitmap
-                pictureBox1.Image = (Bitmap)bmp;
+                loadImage(bmp);
+               
             }
             catch { MessageBox.Show("Imagem não carregada ou erro na Imagem!"); }
+            ativaBotoes(this);
+          
+        }
+
+        private void loadImage(Bitmap img)
+        {
+            pictureBox1.Image = img;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -187,12 +222,22 @@ namespace ColorLab
 
         private void panel4_MouseEnter(object sender, EventArgs e)
         {
-            label4.Text = "Click=Transform!";
+            label4.Text = "Click=Transform";
         }
 
         private void panel4_Click(object sender, EventArgs e)
         {
             transform(trackBar1.Value, trackBar2.Value, trackBar3.Value);
+        }
+
+        private void panel5_MouseEnter(object sender, EventArgs e)
+        {
+            label5.Text = "Click=Invert";
+        }
+
+        private void panel5_Click(object sender, EventArgs e)
+        {
+            transform(255, 255, 255);
         }
     }
 }

@@ -163,6 +163,8 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(104, 57);
             this.panel5.TabIndex = 8;
+            this.panel5.Click += new System.EventHandler(this.panel5_Click);
+            this.panel5.MouseEnter += new System.EventHandler(this.panel5_MouseEnter);
             // 
             // label5
             // 
@@ -282,7 +284,6 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -297,6 +298,7 @@
             this.Controls.Add(this.trackBar2);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.pictureBox1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
