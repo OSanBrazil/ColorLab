@@ -179,5 +179,20 @@ namespace ColorLab
         {
             updateColors();
         }
+
+        private void panel4_DoubleClick(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void panel4_MouseEnter(object sender, EventArgs e)
+        {
+            label4.Text = "Click=Transform!";
+        }
+
+        private void panel4_Click(object sender, EventArgs e)
+        {
+            transform(trackBar1.Value, trackBar2.Value, trackBar3.Value);
+        }
     }
 }
