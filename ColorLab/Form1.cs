@@ -145,7 +145,7 @@ namespace ColorLab
                         }
                         if (r+g+b > 0 & r+g+b < 765)
                         {
-                            bmp.SetPixel(x, y, Color.FromArgb(media * r / 256, media * g / 256, media * b /256));
+                            bmp.SetPixel(x, y, Color.FromArgb(media * r / 255, media * g / 255, media * b /255));
                         }
                         if (r+g+b == 0)
                         {
