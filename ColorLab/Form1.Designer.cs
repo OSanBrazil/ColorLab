@@ -153,9 +153,9 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(28, 85);
+            this.label4.Location = new System.Drawing.Point(23, 86);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 13);
+            this.label4.Size = new System.Drawing.Size(85, 14);
             this.label4.TabIndex = 4;
             this.label4.Text = "label4";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -171,9 +171,9 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(161, 85);
+            this.label5.Location = new System.Drawing.Point(154, 86);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 13);
+            this.label5.Size = new System.Drawing.Size(85, 14);
             this.label5.TabIndex = 4;
             this.label5.Text = "label5";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
