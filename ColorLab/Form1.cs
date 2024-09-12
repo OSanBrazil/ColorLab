@@ -143,7 +143,11 @@ namespace ColorLab
                         {
                             bmp.SetPixel(x, y, Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B));
                         }
-                        else
+                        if (r+g+b > 0 & r+g+b < 765)
+                        {
+                            bmp.SetPixel(x, y, Color.FromArgb(media & r, media & g, media & b));
+                        }
+                        if (r+g+b == 0)
                         {
                             bmp.SetPixel(x, y, Color.FromArgb(media | r, media | g, media | b));
                         }
