@@ -97,22 +97,22 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(25, 178);
+            this.label1.Location = new System.Drawing.Point(8, 178);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "label1";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(112, 178);
+            this.label2.Location = new System.Drawing.Point(95, 178);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(73, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "label2";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
@@ -130,12 +130,12 @@
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(199, 178);
+            this.label3.Location = new System.Drawing.Point(182, 178);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.Size = new System.Drawing.Size(73, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "label3";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // panel4
@@ -150,12 +150,12 @@
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 87);
+            this.label4.Location = new System.Drawing.Point(28, 87);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.Size = new System.Drawing.Size(73, 13);
             this.label4.TabIndex = 4;
             this.label4.Text = "label4";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel5
             // 
@@ -168,12 +168,12 @@
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(155, 87);
+            this.label5.Location = new System.Drawing.Point(161, 87);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.Size = new System.Drawing.Size(73, 13);
             this.label5.TabIndex = 4;
             this.label5.Text = "label5";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
@@ -216,7 +216,7 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "Image Files";
-            this.openFileDialog1.Filter = "JPG|*jpg|PNG|*.png";
+            this.openFileDialog1.Filter = "JPG|*.jpg|PNG|*.png";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
             // button1

@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Net.Http.Headers;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ColorLab
 {
@@ -24,7 +17,7 @@ namespace ColorLab
         {
             InitializeComponent();
             this.Text = "COLORLAB - MANOEL";
-           
+
         }
 
         public void UpdateProperties(Form form)
@@ -40,7 +33,7 @@ namespace ColorLab
             foreach (var rotulo in rotulos) { rotulo.Text = "0"; }
 
             var caixasdeimagem = form.Controls.OfType<PictureBox>();
-            foreach (var caixa in caixasdeimagem) {  caixa.BackColor = Color.Black; };
+            foreach (var caixa in caixasdeimagem) { caixa.BackColor = Color.Black; };
 
             button1.Text = "Black and White";
             button2.Text = "Mono Blue";
@@ -76,20 +69,20 @@ namespace ColorLab
             panel1.BackColor = Color.FromArgb(r, 0, 0);
             panel2.BackColor = Color.FromArgb(0, g, 0);
             panel3.BackColor = Color.FromArgb(0, 0, b);
-            label1.Text = r.ToString();
-            label2.Text = g.ToString();
-            label3.Text = b.ToString();
+            label1.Text = r.ToString() + " (#" + r.ToString("X") + ")";
+            label2.Text = g.ToString() + " (#" + g.ToString("X") + ")"; ;
+            label3.Text = b.ToString() + " (#" + b.ToString("X") + ")"; ;
 
             panel4.BackColor = Color.FromArgb(r, g, b);
             label4.Text = $"{r}, {g}, {b}";
-           
+
             int lum = (r + g + b) / 3;
 
             panel5.BackColor = Color.FromArgb(lum, lum, lum);
-            label5.Text = lum.ToString();
+            label5.Text = lum.ToString() + " (#" + lum.ToString("X") + ")";
         }
 
-       
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -98,7 +91,7 @@ namespace ColorLab
 
         private void Form1_Shown(object sender, EventArgs e)
         {
-           
+
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -120,16 +113,16 @@ namespace ColorLab
 
         private void button1_Click(object sender, EventArgs e)
         {
-           transform(0,0,0);
+            transform(0, 0, 0);
         }
 
         private void transform(int r, int g, int b)
         {
             desativaBotoes(this);
-            
+
             try
             {
-               
+
                 // we pull the bitmap from the image
                 Bitmap bmp = (Bitmap)imagemcarregada;
 
@@ -139,25 +132,25 @@ namespace ColorLab
                     {
                         Color c = bmp.GetPixel(x, y);
                         int media = (c.R + c.G + c.B) / 3;
-                        if (r+g+b == 765)
+                        if (r + g + b == 765)
                         {
                             bmp.SetPixel(x, y, Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B));
                         }
-                        if (r+g+b > 0 & r+g+b < 765)
+                        if (r + g + b > 0 & r + g + b < 765)
                         {
-                            bmp.SetPixel(x, y, Color.FromArgb(media * r / 255, media * g / 255, media * b /255));
+                            bmp.SetPixel(x, y, Color.FromArgb(media * r / 255, media * g / 255, media * b / 255));
                         }
-                        if (r+g+b == 0)
+                        if (r + g + b == 0)
                         {
                             bmp.SetPixel(x, y, Color.FromArgb(media | r, media | g, media | b));
                         }
                     }
                 loadImage(bmp);
-               
+
             }
             catch { MessageBox.Show("Imagem não carregada ou erro na Imagem!"); }
             ativaBotoes(this);
-          
+
         }
 
         private void loadImage(Bitmap img)
@@ -182,7 +175,7 @@ namespace ColorLab
 
         private void pictureBox1_LoadCompleted(object sender, AsyncCompletedEventArgs e)
         {
-           
+
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -202,7 +195,7 @@ namespace ColorLab
                 trackBar3.Value = 0;
             }
 
-            }
+        }
 
         private void trackBar1_ValueChanged(object sender, EventArgs e)
         {
@@ -221,7 +214,7 @@ namespace ColorLab
 
         private void panel4_DoubleClick(object sender, EventArgs e)
         {
-            
+
         }
 
         private void panel4_MouseEnter(object sender, EventArgs e)
