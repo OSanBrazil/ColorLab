@@ -40,7 +40,6 @@ namespace ColorLab
             button3.Text = "Mono Green";
             button4.Text = "Mono Red";
             button5.Text = "RESET";
-
         }
 
         private void desativaBotoes(Form form)
@@ -80,6 +79,7 @@ namespace ColorLab
 
             panel5.BackColor = Color.FromArgb(lum, lum, lum);
             label5.Text = lum.ToString() + " (#" + lum.ToString("X") + ")";
+            
         }
 
 
