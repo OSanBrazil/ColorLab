@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
+
 namespace ColorLab
 {
     public partial class Form1 : Form
@@ -12,11 +13,12 @@ namespace ColorLab
 
         Bitmap imagemcarregada;
         String arquivo;
+        String titulo = "COLORLAB - MANOEL ";
 
         public Form1()
         {
             InitializeComponent();
-            this.Text = "COLORLAB - MANOEL";
+            this.Text = titulo;
 
         }
 
@@ -40,6 +42,7 @@ namespace ColorLab
             button3.Text = "Mono Green";
             button4.Text = "Mono Red";
             button5.Text = "RESET";
+            button6.Text = "Get RGB from Image";
         }
 
         private void desativaBotoes(Form form)
@@ -57,7 +60,6 @@ namespace ColorLab
             foreach (var botao in botoes) { botao.Enabled = true; }
             form_processando.Hide();
         }
-
 
         private void updateColors()
         {
@@ -79,10 +81,8 @@ namespace ColorLab
 
             panel5.BackColor = Color.FromArgb(lum, lum, lum);
             label5.Text = lum.ToString() + " (#" + lum.ToString("X") + ")";
-            
+
         }
-
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -153,6 +153,8 @@ namespace ColorLab
 
         }
 
+
+
         private void loadImage(Bitmap img)
         {
             pictureBox1.Image = img;
@@ -184,8 +186,6 @@ namespace ColorLab
             {
                 imagemcarregada = new Bitmap(arquivo);
                 pictureBox1.Image = imagemcarregada;
-
-
             }
             catch { }
             finally
@@ -235,6 +235,57 @@ namespace ColorLab
         private void panel5_Click(object sender, EventArgs e)
         {
             transform(255, 255, 255);
+        }
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (button6.Enabled == false)
+            {
+                capturePixel();
+            }
+           
+        }
+
+
+        private void capturePixel()
+        {
+            Color c = GetColorAtMousePosition();
+            int r = c.R; int g = c.G; int b = c.B;
+            this.Text = titulo + $"{r}-{g}-{b}";
+
+            trackBar1.Value = r;
+            trackBar2.Value = g;
+            trackBar3.Value = b;
+
+            updateColors();
+        }
+
+        private Color GetColorAtMousePosition()
+        {
+            Bitmap bmp = new Bitmap(this.Width, this.Height);
+            this.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
+            Point mousePosition = this.PointToClient(Cursor.Position);
+            return bmp.GetPixel(mousePosition.X + 8, mousePosition.Y + 32);
+        }
+
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+          
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            button6.Enabled = false;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            button6.Enabled = true;
+        }
+
+        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        {
+            button6.Enabled = true;
         }
     }
 }

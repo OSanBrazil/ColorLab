@@ -51,6 +51,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
@@ -60,40 +61,40 @@
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(22, 248);
+            this.trackBar1.Location = new System.Drawing.Point(22, 231);
             this.trackBar1.Maximum = 255;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBar1.Size = new System.Drawing.Size(45, 196);
+            this.trackBar1.Size = new System.Drawing.Size(45, 180);
             this.trackBar1.TabIndex = 0;
             this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
             // 
             // trackBar2
             // 
-            this.trackBar2.Location = new System.Drawing.Point(109, 248);
+            this.trackBar2.Location = new System.Drawing.Point(109, 231);
             this.trackBar2.Maximum = 255;
             this.trackBar2.Name = "trackBar2";
             this.trackBar2.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBar2.Size = new System.Drawing.Size(45, 196);
+            this.trackBar2.Size = new System.Drawing.Size(45, 180);
             this.trackBar2.TabIndex = 1;
             this.trackBar2.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.trackBar2.ValueChanged += new System.EventHandler(this.trackBar2_ValueChanged);
             // 
             // trackBar3
             // 
-            this.trackBar3.Location = new System.Drawing.Point(196, 248);
+            this.trackBar3.Location = new System.Drawing.Point(196, 231);
             this.trackBar3.Maximum = 255;
             this.trackBar3.Name = "trackBar3";
             this.trackBar3.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBar3.Size = new System.Drawing.Size(45, 196);
+            this.trackBar3.Size = new System.Drawing.Size(45, 180);
             this.trackBar3.TabIndex = 2;
             this.trackBar3.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.trackBar3.ValueChanged += new System.EventHandler(this.trackBar3_ValueChanged);
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(14, 188);
+            this.panel1.Location = new System.Drawing.Point(14, 169);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(60, 57);
             this.panel1.TabIndex = 3;
@@ -101,7 +102,7 @@
             // label1
             // 
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(8, 171);
+            this.label1.Location = new System.Drawing.Point(8, 152);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 4;
@@ -110,7 +111,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(95, 171);
+            this.label2.Location = new System.Drawing.Point(95, 152);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 13);
             this.label2.TabIndex = 4;
@@ -119,21 +120,21 @@
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(101, 188);
+            this.panel2.Location = new System.Drawing.Point(101, 169);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(60, 57);
             this.panel2.TabIndex = 5;
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(188, 188);
+            this.panel3.Location = new System.Drawing.Point(188, 169);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(60, 57);
             this.panel3.TabIndex = 6;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(182, 171);
+            this.label3.Location = new System.Drawing.Point(182, 152);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 13);
             this.label3.TabIndex = 4;
@@ -143,7 +144,7 @@
             // 
             // panel4
             // 
-            this.panel4.Location = new System.Drawing.Point(14, 103);
+            this.panel4.Location = new System.Drawing.Point(14, 89);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(104, 57);
             this.panel4.TabIndex = 7;
@@ -153,7 +154,7 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(23, 86);
+            this.label4.Location = new System.Drawing.Point(23, 72);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 14);
             this.label4.TabIndex = 4;
@@ -162,7 +163,7 @@
             // 
             // panel5
             // 
-            this.panel5.Location = new System.Drawing.Point(144, 103);
+            this.panel5.Location = new System.Drawing.Point(144, 89);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(104, 57);
             this.panel5.TabIndex = 8;
@@ -171,7 +172,7 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(154, 86);
+            this.label5.Location = new System.Drawing.Point(154, 72);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(85, 14);
             this.label5.TabIndex = 4;
@@ -183,13 +184,17 @@
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Location = new System.Drawing.Point(268, 86);
+            this.pictureBox1.Location = new System.Drawing.Point(268, 89);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(521, 356);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.LoadCompleted += new System.ComponentModel.AsyncCompletedEventHandler(this.pictureBox1_LoadCompleted);
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.pictureBox1.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             // 
             // menuStrip1
             // 
@@ -225,7 +230,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(665, 37);
+            this.button1.Location = new System.Drawing.Point(665, 35);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(124, 35);
             this.button1.TabIndex = 11;
@@ -236,7 +241,7 @@
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(532, 37);
+            this.button2.Location = new System.Drawing.Point(532, 35);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(124, 35);
             this.button2.TabIndex = 12;
@@ -247,7 +252,7 @@
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(399, 37);
+            this.button3.Location = new System.Drawing.Point(399, 35);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(124, 35);
             this.button3.TabIndex = 13;
@@ -258,7 +263,7 @@
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(266, 37);
+            this.button4.Location = new System.Drawing.Point(266, 35);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(124, 35);
             this.button4.TabIndex = 14;
@@ -268,8 +273,7 @@
             // 
             // button5
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.Location = new System.Drawing.Point(14, 37);
+            this.button5.Location = new System.Drawing.Point(14, 35);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(234, 35);
             this.button5.TabIndex = 15;
@@ -277,11 +281,23 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // button6
+            // 
+            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button6.Location = new System.Drawing.Point(14, 412);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(234, 35);
+            this.button6.TabIndex = 16;
+            this.button6.Text = "button6";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 454);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -344,6 +360,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }
 
