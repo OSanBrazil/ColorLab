@@ -251,7 +251,6 @@ namespace ColorLab
         {
             Color c = GetColorAtMousePosition();
             int r = c.R; int g = c.G; int b = c.B;
-            this.Text = titulo + $"{r}-{g}-{b}";
 
             trackBar1.Value = r;
             trackBar2.Value = g;

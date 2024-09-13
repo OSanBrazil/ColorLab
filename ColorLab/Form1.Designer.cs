@@ -102,7 +102,7 @@
             // label1
             // 
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(8, 152);
+            this.label1.Location = new System.Drawing.Point(8, 154);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 4;
@@ -111,7 +111,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(95, 152);
+            this.label2.Location = new System.Drawing.Point(95, 154);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 13);
             this.label2.TabIndex = 4;
@@ -134,7 +134,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(182, 152);
+            this.label3.Location = new System.Drawing.Point(182, 154);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 13);
             this.label3.TabIndex = 4;
@@ -154,7 +154,7 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(23, 72);
+            this.label4.Location = new System.Drawing.Point(23, 73);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 14);
             this.label4.TabIndex = 4;
@@ -172,7 +172,7 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(154, 72);
+            this.label5.Location = new System.Drawing.Point(154, 73);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(85, 14);
             this.label5.TabIndex = 4;
@@ -184,6 +184,7 @@
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Cross;
             this.pictureBox1.Location = new System.Drawing.Point(268, 89);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(521, 356);
