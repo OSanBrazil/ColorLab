@@ -9,7 +9,7 @@ namespace ColorLab
 {
     public partial class Form1 : Form
     {
-        Form form_processando = new Form2();
+        Form2 form_processando = new Form2();
 
         Bitmap imagemcarregada;
         String arquivo;
@@ -89,15 +89,6 @@ namespace ColorLab
             UpdateProperties(this);
         }
 
-        private void Form1_Shown(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void carregarImagemToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -125,11 +116,15 @@ namespace ColorLab
 
                 // we pull the bitmap from the image
                 Bitmap bmp = (Bitmap)imagemcarregada;
-
+                int altura = bmp.Height;
+                int progresso;
                 // we change some pixels
                 for (int y = 0; y < bmp.Height; y++)
+                {
                     for (int x = 0; x < bmp.Width; x++)
                     {
+                       
+
                         Color c = bmp.GetPixel(x, y);
                         int media = (c.R + c.G + c.B) / 3;
                         if (r + g + b == 765)
@@ -145,6 +140,20 @@ namespace ColorLab
                             bmp.SetPixel(x, y, Color.FromArgb(media | r, media | g, media | b));
                         }
                     }
+
+                    // add code to show percentage here!
+                    progresso = y * 100 / altura;
+                    
+                    if (progresso % 5 == 0)
+                    {
+                        form_processando.label1.Text = $"Processando: {progresso}%";
+                        form_processando.progressBar1.Value = 100 - progresso;
+                        form_processando.Refresh();
+                    }
+                    
+                    
+                }
+
                 loadImage(bmp);
 
             }
@@ -152,7 +161,6 @@ namespace ColorLab
             ativaBotoes(this);
 
         }
-
 
 
         private void loadImage(Bitmap img)
@@ -173,11 +181,6 @@ namespace ColorLab
         private void button4_Click(object sender, EventArgs e)
         {
             transform(255, 0, 0);
-        }
-
-        private void pictureBox1_LoadCompleted(object sender, AsyncCompletedEventArgs e)
-        {
-
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -212,10 +215,6 @@ namespace ColorLab
             updateColors();
         }
 
-        private void panel4_DoubleClick(object sender, EventArgs e)
-        {
-
-        }
 
         private void panel4_MouseEnter(object sender, EventArgs e)
         {
@@ -246,7 +245,6 @@ namespace ColorLab
            
         }
 
-
         private void capturePixel()
         {
             Color c = GetColorAtMousePosition();
@@ -265,11 +263,6 @@ namespace ColorLab
             this.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
             Point mousePosition = this.PointToClient(Cursor.Position);
             return bmp.GetPixel(mousePosition.X + 8, mousePosition.Y + 32);
-        }
-
-        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
-        {
-          
         }
 
         private void button6_Click(object sender, EventArgs e)

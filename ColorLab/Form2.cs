@@ -10,11 +10,15 @@ using System.Windows.Forms;
 
 namespace ColorLab
 {
+
     public partial class Form2 : Form
     {
+     
         public Form2()
         {
             InitializeComponent();
+            
         }
+
     }
 }
