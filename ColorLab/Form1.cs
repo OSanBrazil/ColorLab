@@ -221,7 +221,7 @@ namespace ColorLab
                 selected_effect = "";
 
             }
-            catch (Exception ex) { MessageBox.Show("Imagem não carregada ou erro na Imagem!"); MessageBox.Show(ex.ToString()); }
+            catch (Exception) { MessageBox.Show("Imagem não carregada ou erro na Imagem!"); } // MessageBox.Show(ex.ToString()); }
             ativaBotoes(this);
 
         }
