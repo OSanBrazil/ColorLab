@@ -221,7 +221,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "Image Files";
-            this.openFileDialog1.Filter = "Image Files(*.BMP;*.JPG;*.PNG;*.GIF)|*.BMP;*.JPG;*.PNG;*.GIF";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
             // button1

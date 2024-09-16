@@ -19,6 +19,7 @@ namespace ColorLab
         {
             InitializeComponent();
             this.Text = titulo;
+            openFileDialog1.Filter = "Image Files| *.BMP; *.JPG; *.JPEG; *.PNG; *.GIF;"; //(BMP/JPG/JPEG/PNG/GIF)
 
         }
 
@@ -97,6 +98,10 @@ namespace ColorLab
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
+            if (imagemcarregada !=null)
+            {
+                imagemcarregada.Dispose();
+            }
             arquivo = openFileDialog1.FileName;
             imagemcarregada = new Bitmap(arquivo);
             pictureBox1.Image = imagemcarregada;
