@@ -18,6 +18,7 @@ namespace ColorLab
         String selected_effect = "";
         int blocksize;
         const float PI = 3.141592f;
+        Random rnd = new Random();
 
         public Form1()
         {
@@ -134,6 +135,7 @@ namespace ColorLab
                 float factor = 1.0f;
                 int corR, corG, corB;
                 blocksize = largura / 4;
+                int fator_ruido = 100;
 
                 // we change some pixels
                 for (int y = 0; y < altura; y++)
@@ -145,11 +147,11 @@ namespace ColorLab
                         Color c = bmp.GetPixel(x, y);
                         int media = (c.R + c.G + c.B) / 3;
 
-                        if (r + g + b == 765 | selected_effect == "Xadrez")
+                        if (r + g + b == 765 | selected_effect == "xadrez")
                         {
                             bmp.SetPixel(x, y, Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B));
                         }
-                        if (selected_effect == "Xadrez" & (x % blocksize > blocksize / 2 & y % blocksize > blocksize / 2 | x % blocksize < blocksize / 2 & y % blocksize < blocksize / 2))
+                        if (selected_effect == "xadrez" & (x % blocksize > blocksize / 2 & y % blocksize > blocksize / 2 | x % blocksize < blocksize / 2 & y % blocksize < blocksize / 2))
                         {
                             bmp.SetPixel(x, y, Color.FromArgb(c.R, c.G, c.B));
                         }
@@ -164,7 +166,7 @@ namespace ColorLab
                             bmp.SetPixel(x, y, Color.FromArgb(media | r, media | g, media | b));
 
                         }
-                        if (selected_effect == "Vinheta")
+                        if (selected_effect == "vinheta")
                         {
                             factor = Math.Abs((float)Math.Sin(y / (float)altura * PI) * (float)Math.Sin(x / (float)largura * PI));
                             corR = (int)(c.R * factor);
@@ -172,6 +174,32 @@ namespace ColorLab
                             corB = (int)(c.B * factor);
 
                             //form_debug.textBox1.AppendText($"{PI}->{factor}->{corR}-{corG}-{corB}/");
+
+                            bmp.SetPixel(x, y, Color.FromArgb(corR, corG, corB));
+                        }
+
+                        if (selected_effect == "ruido")
+                        {
+                            corR = c.R + rnd.Next(fator_ruido * 2) - fator_ruido;
+                            corG = c.G + rnd.Next(fator_ruido * 2) - fator_ruido;
+                            corB = c.B + rnd.Next(fator_ruido * 2) - fator_ruido;
+
+                            corR = Math.Max(Math.Min(corR, 255), 0);
+                            corG = Math.Max(Math.Min(corG, 255), 0);
+                            corB = Math.Max(Math.Min(corB, 255), 0);
+
+                            bmp.SetPixel(x, y, Color.FromArgb(corR, corG, corB));
+                        }
+
+                        if (selected_effect == "estratificar")
+                        {
+                            corR = c.R;
+                            corG = c.G;
+                            corB = c.B;
+
+                            if (corR > 127) { corR = 255; } else { corR = 0; };
+                            if (corG > 127) { corG = 255; } else { corG = 0; };
+                            if (corB > 127) { corB = 255; } else { corB = 0; };
 
                             bmp.SetPixel(x, y, Color.FromArgb(corR, corG, corB));
                         }
@@ -187,14 +215,13 @@ namespace ColorLab
                         form_processando.Refresh();
                     }
 
-
                 }
 
                 loadImage(bmp);
                 selected_effect = "";
 
             }
-            catch (Exception ex) { MessageBox.Show("Imagem não carregada ou erro na Imagem!"); } // MessageBox.Show(ex.ToString()); }
+            catch (Exception ex) { MessageBox.Show("Imagem não carregada ou erro na Imagem!"); MessageBox.Show(ex.ToString()); }
             ativaBotoes(this);
 
         }
@@ -352,6 +379,17 @@ namespace ColorLab
             button5.PerformClick();
         }
 
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetImage(pictureBox1.Image);
+                MessageBox.Show("Imagem copiada para área de transferência!");
+            }
+            catch { MessageBox.Show("Sem imagem carregada!"); }
+
+        }
+
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -359,20 +397,26 @@ namespace ColorLab
 
         private void xadrezToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            selected_effect = "Xadrez";
+            selected_effect = "xadrez";
             transform(255, 255, 255);
         }
 
         private void vinhetaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            selected_effect = "Vinheta";
+            selected_effect = "vinheta";
             transform(-1, -1, -1);
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private void ruídoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Clipboard.SetImage(pictureBox1.Image);
-            MessageBox.Show("Imagem copiada para área de transferência!");
+            selected_effect = "ruido";
+            transform(-2, -2, -2);
+        }
+
+        private void estratificarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            selected_effect = "estratificar";
+            transform(-3, -3, -3);
         }
     }
 }

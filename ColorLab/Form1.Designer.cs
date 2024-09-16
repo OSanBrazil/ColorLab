@@ -45,6 +45,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.carregarImagemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.efeitosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,7 +64,8 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ruídoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estratificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
@@ -234,17 +236,24 @@
             this.carregarImagemToolStripMenuItem.Text = "&Carregar imagem";
             this.carregarImagemToolStripMenuItem.Click += new System.EventHandler(this.carregarImagemToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(247, 22);
+            this.toolStripMenuItem1.Text = "Copiar para área de &transferência";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
             // resetToolStripMenuItem
             // 
             this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
-            this.resetToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.resetToolStripMenuItem.Text = "&Re&set";
             this.resetToolStripMenuItem.Click += new System.EventHandler(this.resetToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.sairToolStripMenuItem.Text = "Sai&r";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -258,7 +267,9 @@
             this.negativoToolStripMenuItem,
             this.aplicarRGBToolStripMenuItem,
             this.xadrezToolStripMenuItem,
-            this.vinhetaToolStripMenuItem});
+            this.vinhetaToolStripMenuItem,
+            this.ruídoToolStripMenuItem,
+            this.estratificarToolStripMenuItem});
             this.efeitosToolStripMenuItem.Name = "efeitosToolStripMenuItem";
             this.efeitosToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.efeitosToolStripMenuItem.Text = "&Efeitos";
@@ -389,12 +400,19 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // toolStripMenuItem1
+            // ruídoToolStripMenuItem
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(247, 22);
-            this.toolStripMenuItem1.Text = "Copiar para área de &transferência";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.ruídoToolStripMenuItem.Name = "ruídoToolStripMenuItem";
+            this.ruídoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ruídoToolStripMenuItem.Text = "Ruí&do";
+            this.ruídoToolStripMenuItem.Click += new System.EventHandler(this.ruídoToolStripMenuItem_Click);
+            // 
+            // estratificarToolStripMenuItem
+            // 
+            this.estratificarToolStripMenuItem.Name = "estratificarToolStripMenuItem";
+            this.estratificarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.estratificarToolStripMenuItem.Text = "Es&tratificar";
+            this.estratificarToolStripMenuItem.Click += new System.EventHandler(this.estratificarToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -476,6 +494,8 @@
         private System.Windows.Forms.ToolStripMenuItem xadrezToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vinhetaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem ruídoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem estratificarToolStripMenuItem;
     }
 }
 
