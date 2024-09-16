@@ -45,6 +45,17 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.carregarImagemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.efeitosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pretoEBrancoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.monoAzulToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.monoVerdeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.monoVermelhoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.negativoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aplicarRGBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xadrezToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vinhetaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -52,6 +63,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
@@ -196,7 +208,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.arquivoToolStripMenuItem});
+            this.arquivoToolStripMenuItem,
+            this.efeitosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(801, 24);
@@ -206,7 +219,10 @@
             // arquivoToolStripMenuItem
             // 
             this.arquivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.carregarImagemToolStripMenuItem});
+            this.carregarImagemToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.resetToolStripMenuItem,
+            this.sairToolStripMenuItem});
             this.arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
             this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.arquivoToolStripMenuItem.Text = "&Arquivo";
@@ -214,9 +230,94 @@
             // carregarImagemToolStripMenuItem
             // 
             this.carregarImagemToolStripMenuItem.Name = "carregarImagemToolStripMenuItem";
-            this.carregarImagemToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.carregarImagemToolStripMenuItem.Text = "&Carregar Imagem";
+            this.carregarImagemToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.carregarImagemToolStripMenuItem.Text = "&Carregar imagem";
             this.carregarImagemToolStripMenuItem.Click += new System.EventHandler(this.carregarImagemToolStripMenuItem_Click);
+            // 
+            // resetToolStripMenuItem
+            // 
+            this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
+            this.resetToolStripMenuItem.Text = "&Re&set";
+            this.resetToolStripMenuItem.Click += new System.EventHandler(this.resetToolStripMenuItem_Click);
+            // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
+            this.sairToolStripMenuItem.Text = "Sai&r";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            // 
+            // efeitosToolStripMenuItem
+            // 
+            this.efeitosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pretoEBrancoToolStripMenuItem,
+            this.monoAzulToolStripMenuItem,
+            this.monoVerdeToolStripMenuItem,
+            this.monoVermelhoToolStripMenuItem,
+            this.negativoToolStripMenuItem,
+            this.aplicarRGBToolStripMenuItem,
+            this.xadrezToolStripMenuItem,
+            this.vinhetaToolStripMenuItem});
+            this.efeitosToolStripMenuItem.Name = "efeitosToolStripMenuItem";
+            this.efeitosToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.efeitosToolStripMenuItem.Text = "&Efeitos";
+            // 
+            // pretoEBrancoToolStripMenuItem
+            // 
+            this.pretoEBrancoToolStripMenuItem.Name = "pretoEBrancoToolStripMenuItem";
+            this.pretoEBrancoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pretoEBrancoToolStripMenuItem.Text = "&Preto e Branco";
+            this.pretoEBrancoToolStripMenuItem.Click += new System.EventHandler(this.pretoEBrancoToolStripMenuItem_Click);
+            // 
+            // monoAzulToolStripMenuItem
+            // 
+            this.monoAzulToolStripMenuItem.Name = "monoAzulToolStripMenuItem";
+            this.monoAzulToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.monoAzulToolStripMenuItem.Text = "Mono &Azul";
+            this.monoAzulToolStripMenuItem.Click += new System.EventHandler(this.monoAzulToolStripMenuItem_Click);
+            // 
+            // monoVerdeToolStripMenuItem
+            // 
+            this.monoVerdeToolStripMenuItem.Name = "monoVerdeToolStripMenuItem";
+            this.monoVerdeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.monoVerdeToolStripMenuItem.Text = "Mono &Verde";
+            this.monoVerdeToolStripMenuItem.Click += new System.EventHandler(this.monoVerdeToolStripMenuItem_Click);
+            // 
+            // monoVermelhoToolStripMenuItem
+            // 
+            this.monoVermelhoToolStripMenuItem.Name = "monoVermelhoToolStripMenuItem";
+            this.monoVermelhoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.monoVermelhoToolStripMenuItem.Text = "Mono Ve&rmelho";
+            this.monoVermelhoToolStripMenuItem.Click += new System.EventHandler(this.monoVermelhoToolStripMenuItem_Click);
+            // 
+            // negativoToolStripMenuItem
+            // 
+            this.negativoToolStripMenuItem.Name = "negativoToolStripMenuItem";
+            this.negativoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.negativoToolStripMenuItem.Text = "&Negativo";
+            this.negativoToolStripMenuItem.Click += new System.EventHandler(this.negativoToolStripMenuItem_Click);
+            // 
+            // aplicarRGBToolStripMenuItem
+            // 
+            this.aplicarRGBToolStripMenuItem.Name = "aplicarRGBToolStripMenuItem";
+            this.aplicarRGBToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aplicarRGBToolStripMenuItem.Text = "Ap&licar RGB";
+            this.aplicarRGBToolStripMenuItem.Click += new System.EventHandler(this.aplicarRGBToolStripMenuItem_Click);
+            // 
+            // xadrezToolStripMenuItem
+            // 
+            this.xadrezToolStripMenuItem.Name = "xadrezToolStripMenuItem";
+            this.xadrezToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xadrezToolStripMenuItem.Text = "&Xadrez";
+            this.xadrezToolStripMenuItem.Click += new System.EventHandler(this.xadrezToolStripMenuItem_Click);
+            // 
+            // vinhetaToolStripMenuItem
+            // 
+            this.vinhetaToolStripMenuItem.Name = "vinhetaToolStripMenuItem";
+            this.vinhetaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vinhetaToolStripMenuItem.Text = "&Vinheta";
+            this.vinhetaToolStripMenuItem.Click += new System.EventHandler(this.vinhetaToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 
@@ -288,6 +389,13 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(247, 22);
+            this.toolStripMenuItem1.Text = "Copiar para área de &transferência";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -356,6 +464,18 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.ToolStripMenuItem efeitosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pretoEBrancoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem monoAzulToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem monoVerdeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem monoVermelhoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem negativoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aplicarRGBToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem resetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xadrezToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vinhetaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
 

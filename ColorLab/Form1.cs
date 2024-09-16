@@ -10,10 +10,14 @@ namespace ColorLab
     public partial class Form1 : Form
     {
         Form2 form_processando = new Form2();
+        Form3 form_debug = new Form3();
 
         Bitmap imagemcarregada;
         String arquivo;
         String titulo = "COLORLAB - MANOEL ";
+        String selected_effect = "";
+        int blocksize;
+        const float PI = 3.141592f;
 
         public Form1()
         {
@@ -53,6 +57,8 @@ namespace ColorLab
             form_processando.StartPosition = FormStartPosition.CenterScreen;
             form_processando.Show();
             form_processando.Refresh();
+            //form_debug.Show();
+            //form_debug.Refresh();
         }
 
         private void ativaBotoes(Form form)
@@ -98,7 +104,7 @@ namespace ColorLab
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
-            if (imagemcarregada !=null)
+            if (imagemcarregada != null)
             {
                 imagemcarregada.Dispose();
             }
@@ -116,53 +122,79 @@ namespace ColorLab
         {
             desativaBotoes(this);
 
+
             try
             {
 
                 // we pull the bitmap from the image
-                Bitmap bmp = (Bitmap)imagemcarregada;
+                Bitmap bmp = imagemcarregada;
                 int altura = bmp.Height;
+                int largura = bmp.Width;
                 int progresso;
+                float factor = 1.0f;
+                int corR, corG, corB;
+                blocksize = largura / 4;
+
                 // we change some pixels
-                for (int y = 0; y < bmp.Height; y++)
+                for (int y = 0; y < altura; y++)
                 {
-                    for (int x = 0; x < bmp.Width; x++)
+                    for (int x = 0; x < largura; x++)
                     {
-                       
+
 
                         Color c = bmp.GetPixel(x, y);
                         int media = (c.R + c.G + c.B) / 3;
-                        if (r + g + b == 765)
+
+                        if (r + g + b == 765 | selected_effect == "Xadrez")
                         {
                             bmp.SetPixel(x, y, Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B));
                         }
+                        if (selected_effect == "Xadrez" & (x % blocksize > blocksize / 2 & y % blocksize > blocksize / 2 | x % blocksize < blocksize / 2 & y % blocksize < blocksize / 2))
+                        {
+                            bmp.SetPixel(x, y, Color.FromArgb(c.R, c.G, c.B));
+                        }
+
                         if (r + g + b > 0 & r + g + b < 765)
                         {
                             bmp.SetPixel(x, y, Color.FromArgb(media * r / 255, media * g / 255, media * b / 255));
                         }
                         if (r + g + b == 0)
                         {
+
                             bmp.SetPixel(x, y, Color.FromArgb(media | r, media | g, media | b));
+
+                        }
+                        if (selected_effect == "Vinheta")
+                        {
+                            factor = Math.Abs((float)Math.Sin(y / (float)altura * PI) * (float)Math.Sin(x / (float)largura * PI));
+                            corR = (int)(c.R * factor);
+                            corG = (int)(c.G * factor);
+                            corB = (int)(c.B * factor);
+
+                            //form_debug.textBox1.AppendText($"{PI}->{factor}->{corR}-{corG}-{corB}/");
+
+                            bmp.SetPixel(x, y, Color.FromArgb(corR, corG, corB));
                         }
                     }
 
                     // add code to show percentage here!
                     progresso = y * 100 / altura;
-                    
+
                     if (progresso % 5 == 0)
                     {
                         form_processando.label1.Text = $"Processando: {progresso}%";
                         form_processando.progressBar1.Value = 100 - progresso;
                         form_processando.Refresh();
                     }
-                    
-                    
+
+
                 }
 
                 loadImage(bmp);
+                selected_effect = "";
 
             }
-            catch { MessageBox.Show("Imagem não carregada ou erro na Imagem!"); }
+            catch (Exception ex) { MessageBox.Show("Imagem não carregada ou erro na Imagem!"); } // MessageBox.Show(ex.ToString()); }
             ativaBotoes(this);
 
         }
@@ -247,7 +279,7 @@ namespace ColorLab
             {
                 capturePixel();
             }
-           
+
         }
 
         private void capturePixel()
@@ -283,6 +315,64 @@ namespace ColorLab
         private void pictureBox1_MouseLeave(object sender, EventArgs e)
         {
             button6.Enabled = true;
+        }
+
+        private void pretoEBrancoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            button1.PerformClick();
+        }
+
+        private void monoAzulToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            button2.PerformClick();
+        }
+
+        private void monoVerdeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            button3.PerformClick();
+        }
+
+        private void monoVermelhoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            button4.PerformClick();
+        }
+
+        private void negativoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            transform(255, 255, 255);
+        }
+
+        private void aplicarRGBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            transform(trackBar1.Value, trackBar2.Value, trackBar3.Value);
+        }
+
+        private void resetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            button5.PerformClick();
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void xadrezToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            selected_effect = "Xadrez";
+            transform(255, 255, 255);
+        }
+
+        private void vinhetaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            selected_effect = "Vinheta";
+            transform(-1, -1, -1);
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetImage(pictureBox1.Image);
+            MessageBox.Show("Imagem copiada para área de transferência!");
         }
     }
 }
