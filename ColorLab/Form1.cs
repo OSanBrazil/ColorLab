@@ -11,6 +11,7 @@ namespace ColorLab
     {
         Form2 form_processando = new Form2();
         Form3 form_debug = new Form3();
+        Form form_param = new Form();
 
         Bitmap imagemcarregada;
         String arquivo;
@@ -134,8 +135,19 @@ namespace ColorLab
                 int progresso;
                 float factor = 1.0f;
                 int corR, corG, corB;
-                blocksize = largura / 4;
                 int fator_ruido = 100;
+                int blocksize = 8;
+
+                if (selected_effect == "Xadrez")
+                {
+                    blocksize = recebeParametros("Quantidade de blocos", 2, 64, 8);
+                    blocksize = largura * 2 / blocksize;
+                }
+
+                if (selected_effect == "Ruido")
+                {
+                    fator_ruido = recebeParametros("Intensidade do ruído", 10, 400, 100);
+                }
 
                 // we change some pixels
                 for (int y = 0; y < altura; y++)
@@ -147,11 +159,11 @@ namespace ColorLab
                         Color c = bmp.GetPixel(x, y);
                         int media = (c.R + c.G + c.B) / 3;
 
-                        if (r + g + b == 765 | selected_effect == "xadrez")
+                        if (r + g + b == 765 | selected_effect == "Xadrez")
                         {
                             bmp.SetPixel(x, y, Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B));
                         }
-                        if (selected_effect == "xadrez" & (x % blocksize > blocksize / 2 & y % blocksize > blocksize / 2 | x % blocksize < blocksize / 2 & y % blocksize < blocksize / 2))
+                        if (selected_effect == "Xadrez" & (x % blocksize > blocksize / 2 & y % blocksize > blocksize / 2 | x % blocksize < blocksize / 2 & y % blocksize < blocksize / 2))
                         {
                             bmp.SetPixel(x, y, Color.FromArgb(c.R, c.G, c.B));
                         }
@@ -166,7 +178,7 @@ namespace ColorLab
                             bmp.SetPixel(x, y, Color.FromArgb(media | r, media | g, media | b));
 
                         }
-                        if (selected_effect == "vinheta")
+                        if (selected_effect == "Vinheta")
                         {
                             factor = Math.Abs((float)Math.Sin(y / (float)altura * PI) * (float)Math.Sin(x / (float)largura * PI));
                             corR = (int)(c.R * factor);
@@ -178,7 +190,7 @@ namespace ColorLab
                             bmp.SetPixel(x, y, Color.FromArgb(corR, corG, corB));
                         }
 
-                        if (selected_effect == "ruido")
+                        if (selected_effect == "Ruido")
                         {
                             corR = c.R + rnd.Next(fator_ruido * 2) - fator_ruido;
                             corG = c.G + rnd.Next(fator_ruido * 2) - fator_ruido;
@@ -191,7 +203,7 @@ namespace ColorLab
                             bmp.SetPixel(x, y, Color.FromArgb(corR, corG, corB));
                         }
 
-                        if (selected_effect == "estratificar")
+                        if (selected_effect == "Estratificar")
                         {
                             corR = c.R;
                             corG = c.G;
@@ -232,6 +244,58 @@ namespace ColorLab
             pictureBox1.Image = img;
         }
 
+        private int recebeParametros(string nome_param, int min_param, int max_param, int std_param)
+        {
+            int param = -1;
+
+            form_param.Controls.Clear();
+           
+            form_param.Text = selected_effect;
+            form_param.StartPosition = FormStartPosition.CenterScreen;
+            form_param.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Label label_parametro = new Label();
+            Button botao_enter = new Button();
+            TextBox entrada_parametro = new TextBox();
+            entrada_parametro.Width = 32;
+            entrada_parametro.TextAlign = HorizontalAlignment.Center;
+
+            form_param.Controls.Add(label_parametro);
+            label_parametro.AutoSize = true;
+            label_parametro.Text = $"{nome_param}: ({min_param}-{max_param})?";
+
+            form_param.Controls.Add(entrada_parametro);
+
+            form_param.Controls.Add(botao_enter);
+            botao_enter.Text = "OK";
+            botao_enter.Click += new EventHandler(botao_enter_click);
+            // Assuming you have a control named 'myControl' and a form named 'myForm'
+            int y = 0;
+            foreach (Control myControl in form_param.Controls)
+            {
+                int x = (form_param.ClientSize.Width - myControl.Width) / 2;
+                myControl.Location = new Point(x, y);
+                y += 26;
+            }
+            form_param.Height = y + 48;
+            form_param.ShowDialog();
+            try
+            {
+                param = int.Parse(entrada_parametro.Text);
+                if (param < min_param | param > max_param) { throw new ArgumentException(); }
+            }
+            catch
+            {
+                MessageBox.Show($"Valor inválido, carregado valor padrão ({std_param})!");
+                param = std_param;
+            }
+            
+            return param;
+        }
+
+        private void botao_enter_click(object sender, EventArgs e)
+        {
+            form_param.Close();  
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             transform(0, 0, 255);
@@ -397,25 +461,26 @@ namespace ColorLab
 
         private void xadrezToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            selected_effect = "xadrez";
+            selected_effect = "Xadrez";
+         
             transform(255, 255, 255);
         }
 
         private void vinhetaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            selected_effect = "vinheta";
+            selected_effect = "Vinheta";
             transform(-1, -1, -1);
         }
 
         private void ruídoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            selected_effect = "ruido";
+            selected_effect = "Ruido";
             transform(-2, -2, -2);
         }
 
         private void estratificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            selected_effect = "estratificar";
+            selected_effect = "Estratificar";
             transform(-3, -3, -3);
         }
     }
