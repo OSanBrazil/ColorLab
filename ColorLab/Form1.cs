@@ -267,6 +267,7 @@ namespace ColorLab
             TextBox entrada_parametro = new TextBox();
             entrada_parametro.Width = 32;
             entrada_parametro.TextAlign = HorizontalAlignment.Center;
+            entrada_parametro.Text = std_param.ToString();
 
             form_param.Controls.Add(label_parametro);
             label_parametro.AutoSize = true;
@@ -326,6 +327,7 @@ namespace ColorLab
             {
                 imagemcarregada = new Bitmap(arquivo);
                 pictureBox1.Image = imagemcarregada;
+                desfazerÚltimoToolStripMenuItem.Enabled = false;
             }
             catch { }
             finally
@@ -506,6 +508,7 @@ namespace ColorLab
         private void desfazerÚltimoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             loadImage(bmp_anterior);
+            imagemcarregada = new Bitmap(bmp_anterior);
             desfazerÚltimoToolStripMenuItem.Enabled = false;
         }
     }
