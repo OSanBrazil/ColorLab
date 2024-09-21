@@ -508,7 +508,7 @@ namespace ColorLab
         private void desfazerÚltimoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             loadImage(bmp_anterior);
-            imagemcarregada = new Bitmap(bmp_anterior);
+            imagemcarregada = bmp_anterior;
             desfazerÚltimoToolStripMenuItem.Enabled = false;
         }
     }
