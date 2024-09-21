@@ -14,6 +14,7 @@ namespace ColorLab
         Form form_param = new Form();
 
         Bitmap imagemcarregada;
+        Bitmap bmp_anterior;
         String arquivo;
         String titulo = "COLORLAB - MANOEL ";
         String selected_effect = "";
@@ -27,6 +28,12 @@ namespace ColorLab
             this.Text = titulo;
             openFileDialog1.Filter = "Image Files| *.BMP; *.JPG; *.JPEG; *.PNG; *.GIF;"; //(BMP/JPG/JPEG/PNG/GIF)
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            UpdateProperties(this);
+            desfazerÚltimoToolStripMenuItem.Enabled = false;
         }
 
         public void UpdateProperties(Form form)
@@ -94,10 +101,7 @@ namespace ColorLab
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            UpdateProperties(this);
-        }
+        
 
 
         private void carregarImagemToolStripMenuItem_Click(object sender, EventArgs e)
@@ -130,7 +134,10 @@ namespace ColorLab
             {
 
                 // we pull the bitmap from the image
+                bmp_anterior = new Bitmap (imagemcarregada);
+          
                 Bitmap bmp = imagemcarregada;
+                
                 int altura = bmp.Height;
                 int largura = bmp.Width;
                 int progresso;
@@ -243,6 +250,7 @@ namespace ColorLab
         private void loadImage(Bitmap img)
         {
             pictureBox1.Image = img;
+            desfazerÚltimoToolStripMenuItem.Enabled = true;
         }
 
         private int recebeParametros(string nome_param, int min_param, int max_param, int std_param)
@@ -446,12 +454,7 @@ namespace ColorLab
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Clipboard.SetImage(pictureBox1.Image);
-                MessageBox.Show("Imagem copiada para área de transferência!");
-            }
-            catch { MessageBox.Show("Sem imagem carregada!"); }
+           
 
         }
 
@@ -483,6 +486,27 @@ namespace ColorLab
         {
             selected_effect = "Estratificar";
             transform(-3, -3, -3);
+        }
+
+        private void efeitosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void copiarParaÁreaDetransferênciaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetImage(pictureBox1.Image);
+                MessageBox.Show("Imagem copiada para área de transferência!");
+            }
+            catch { MessageBox.Show("Sem imagem carregada!"); }
+        }
+
+        private void desfazerÚltimoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadImage(bmp_anterior);
+            desfazerÚltimoToolStripMenuItem.Enabled = false;
         }
     }
 }
