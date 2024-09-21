@@ -67,6 +67,7 @@ namespace ColorLab
         {
             var botoes = form.Controls.OfType<System.Windows.Forms.Button>();
             foreach (var botao in botoes) { botao.Enabled = true; }
+            selected_effect = "";
             form_processando.Hide();
         }
 
@@ -140,7 +141,7 @@ namespace ColorLab
 
                 if (selected_effect == "Xadrez")
                 {
-                    blocksize = recebeParametros("Quantidade de blocos", 2, 64, 8);
+                    blocksize = recebeParametros("Quantidade de blocos (horiz.)", 2, 64, 8);
                     blocksize = largura * 2 / blocksize;
                 }
 
@@ -230,7 +231,7 @@ namespace ColorLab
                 }
 
                 loadImage(bmp);
-                selected_effect = "";
+               
 
             }
             catch (Exception) { MessageBox.Show("Imagem não carregada ou erro na Imagem!"); } // MessageBox.Show(ex.ToString()); }
