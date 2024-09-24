@@ -2,11 +2,13 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 
 namespace ColorLab
 {
+   
     public partial class Form1 : Form
     {
         Form2 form_processando = new Form2();
@@ -19,7 +21,7 @@ namespace ColorLab
         String arquivo;
         String titulo = "COLORLAB - MANOEL ";
         String selected_effect = "";
-        int blocksize;
+        // int blocksize;
         const float PI = 3.141592f;
         Random rnd = new Random();
 
@@ -27,7 +29,6 @@ namespace ColorLab
         {
             InitializeComponent();
             this.Text = titulo;
-          
             openFileDialog1.Filter = "Image Files| *.BMP; *.JPG; *.JPEG; *.PNG; *.GIF;"; //(BMP/JPG/JPEG/PNG/GIF)
 
         }
@@ -37,6 +38,8 @@ namespace ColorLab
             UpdateProperties(this);
             desfazerÚltimoToolStripMenuItem.Enabled = false;
         }
+
+       
 
         public void UpdateProperties(Form form)
         {
@@ -522,6 +525,7 @@ namespace ColorLab
             Form form_binary = new Form4();
             form_binary.Show();
         }
+
 
     }
 }

@@ -4,13 +4,15 @@ using System.Windows.Forms;
 
 namespace ColorLab
 {
+
     public partial class Form4 : Form
     {
+
         CheckBox[] checkBoxes = new CheckBox[33];
         Label[] labels = new Label[5];
         NumericUpDown[] numericUpDowns = new NumericUpDown[5];
 
-        string[] labelsText = { "1 bit  ->", "8 bit (1 Byte)  ->", "R  ->", "G  ->", "B  ->" };
+        string[] labelsText = { "1 bit  ->", "8 bits (1 Byte)  ->", "R  ->", "G  ->", "B  ->" };
         string[] binValue = new string[5];
         string binSequence;
         int std_Height = 28;
