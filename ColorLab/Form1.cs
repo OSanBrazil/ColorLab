@@ -27,6 +27,7 @@ namespace ColorLab
         {
             InitializeComponent();
             this.Text = titulo;
+          
             openFileDialog1.Filter = "Image Files| *.BMP; *.JPG; *.JPEG; *.PNG; *.GIF;"; //(BMP/JPG/JPEG/PNG/GIF)
 
         }
@@ -48,6 +49,8 @@ namespace ColorLab
             var rotulos = form.Controls.OfType<Label>();
             // Update properties for each label
             foreach (var rotulo in rotulos) { rotulo.Text = "0"; }
+
+            label6.Text = "";
 
             var caixasdeimagem = form.Controls.OfType<PictureBox>();
             foreach (var caixa in caixasdeimagem) { caixa.BackColor = Color.Black; };
@@ -119,6 +122,7 @@ namespace ColorLab
             arquivo = openFileDialog1.FileName;
             imagemcarregada = new Bitmap(arquivo);
             pictureBox1.Image = imagemcarregada;
+            label6.Text = $"Dimensões da imagem: X = {imagemcarregada.Width}, Y = {imagemcarregada.Height}";
         }
 
         private void button1_Click(object sender, EventArgs e)

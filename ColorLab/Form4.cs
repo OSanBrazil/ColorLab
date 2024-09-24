@@ -23,7 +23,8 @@ namespace ColorLab
 
         private void Form4_Load(object sender, EventArgs e)
         {
-            this.Text = "Conversor Binário";
+            this.Text = "CONVERSOR BINÁRIO";
+            label1.Visible = false;
 
             int x = 7, y = 0, ly = 0;
 
@@ -70,7 +71,7 @@ namespace ColorLab
             }
 
             button1.Location = new Point(checkBoxes[1].Left + std_Height * 9, (ly + 1) * 2 * std_Height + 2);
-
+            panel1.Location = new Point(checkBoxes[1].Left + std_Height * 16, checkBoxes[17].Top + std_Height / 2 - panel1.Width / 2);
 
         }
         private void checkBoxes_Changed(object sender, EventArgs e)
@@ -83,7 +84,9 @@ namespace ColorLab
 
             }
 
-            this.Text = binSequence;
+            label1.Text = binSequence;
+            UpdateNumerics();
+
         }
 
         private void numericUpDowns_Changed(object sender, EventArgs e)
@@ -98,7 +101,7 @@ namespace ColorLab
                 newBinSequence += Convert.ToString(number, 2).PadLeft(8, '0');
             }
             UpdateDisplay(newBinSequence);
-            
+
 
         }
         private void UpdateDisplay(string newBinSequence)
@@ -117,6 +120,19 @@ namespace ColorLab
                 n++;
             }
 
+
+
+            panel1.BackColor = Color.FromArgb((int)numericUpDowns[2].Value, (int)numericUpDowns[3].Value, (int)numericUpDowns[4].Value);
+
+        }
+        private void UpdateNumerics()
+        {
+            numericUpDowns[0].Value = Convert.ToInt32(label1.Text.Substring(0, 1), 2);
+            for (int i = 1;i < 5;i++)
+            {
+                numericUpDowns[i].Value = Convert.ToInt32(label1.Text.Substring(i*8-7, 8), 2);
+            }
+            
         }
         private void Form4_Shown(object sender, EventArgs e)
         {
@@ -125,10 +141,35 @@ namespace ColorLab
 
         private void button1_Click(object sender, EventArgs e)
         {
-            foreach (NumericUpDown numericUpDown in numericUpDowns)
+            foreach (CheckBox checkBox in checkBoxes)
             {
-                numericUpDown.Value = 0;
+                checkBox.Checked = false;
             }
+        }
+
+        private void Form4_Paint(object sender, PaintEventArgs e)
+        {
+            // Create pen.
+            Pen blackPen = new Pen(Color.Black, 1);
+            float x1, y1, x2, y2;
+            // Create coordinates of points that define line.
+
+            x1 = 490;
+            y1 = 293;
+            x2 = 605;
+            y2 = y1;
+            int desloc = 57;
+            // Draw line to screen.
+            e.Graphics.DrawLine(blackPen, x1, y1, x2, y2);
+            e.Graphics.DrawLine(blackPen, x1, y1 - desloc, x2 - desloc, y2 - desloc);
+            e.Graphics.DrawLine(blackPen, x1, y1 + desloc, x2 - desloc, y2 + desloc);
+            e.Graphics.DrawLine(blackPen, x2 - desloc, y1 - desloc, x2 - desloc, y1 + desloc);
+        }
+
+        private void Form4_MouseMove(object sender, MouseEventArgs e)
+        {
+            // Gets the mouse position on the screen;
+            // this.Text = this.PointToClient(Cursor.Position).ToString();
         }
     }
 }

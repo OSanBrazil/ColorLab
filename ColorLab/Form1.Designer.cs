@@ -61,6 +61,8 @@
             this.vinhetaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ruídoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estratificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ferramentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.conversorBinárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -68,8 +70,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.ferramentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.conversorBinárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
@@ -112,6 +113,7 @@
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Location = new System.Drawing.Point(14, 169);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(60, 57);
@@ -138,6 +140,7 @@
             // 
             // panel2
             // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Location = new System.Drawing.Point(101, 169);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(60, 57);
@@ -145,6 +148,7 @@
             // 
             // panel3
             // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Location = new System.Drawing.Point(188, 169);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(60, 57);
@@ -161,6 +165,7 @@
             // 
             // panel4
             // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel4.Location = new System.Drawing.Point(14, 89);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(104, 57);
@@ -179,6 +184,7 @@
             // 
             // panel5
             // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel5.Location = new System.Drawing.Point(144, 89);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(104, 57);
@@ -201,9 +207,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.pictureBox1.Location = new System.Drawing.Point(268, 89);
+            this.pictureBox1.Location = new System.Drawing.Point(266, 89);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(521, 356);
+            this.pictureBox1.Size = new System.Drawing.Size(523, 331);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
@@ -237,21 +243,21 @@
             // carregarImagemToolStripMenuItem
             // 
             this.carregarImagemToolStripMenuItem.Name = "carregarImagemToolStripMenuItem";
-            this.carregarImagemToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.carregarImagemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.carregarImagemToolStripMenuItem.Text = "&Carregar imagem";
             this.carregarImagemToolStripMenuItem.Click += new System.EventHandler(this.carregarImagemToolStripMenuItem_Click);
             // 
             // resetToolStripMenuItem
             // 
             this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
-            this.resetToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.resetToolStripMenuItem.Text = "&Re&set";
             this.resetToolStripMenuItem.Click += new System.EventHandler(this.resetToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sairToolStripMenuItem.Text = "Sai&r";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -366,6 +372,21 @@
             this.estratificarToolStripMenuItem.Text = "Es&tratificar";
             this.estratificarToolStripMenuItem.Click += new System.EventHandler(this.estratificarToolStripMenuItem_Click);
             // 
+            // ferramentasToolStripMenuItem
+            // 
+            this.ferramentasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.conversorBinárioToolStripMenuItem});
+            this.ferramentasToolStripMenuItem.Name = "ferramentasToolStripMenuItem";
+            this.ferramentasToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.ferramentasToolStripMenuItem.Text = "&Ferramentas";
+            // 
+            // conversorBinárioToolStripMenuItem
+            // 
+            this.conversorBinárioToolStripMenuItem.Name = "conversorBinárioToolStripMenuItem";
+            this.conversorBinárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.conversorBinárioToolStripMenuItem.Text = "&Conversor Binário";
+            this.conversorBinárioToolStripMenuItem.Click += new System.EventHandler(this.conversorBinárioToolStripMenuItem_Click);
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "Image Files";
@@ -436,26 +457,23 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // ferramentasToolStripMenuItem
+            // label6
             // 
-            this.ferramentasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.conversorBinárioToolStripMenuItem});
-            this.ferramentasToolStripMenuItem.Name = "ferramentasToolStripMenuItem";
-            this.ferramentasToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
-            this.ferramentasToolStripMenuItem.Text = "&Ferramentas";
-            // 
-            // conversorBinárioToolStripMenuItem
-            // 
-            this.conversorBinárioToolStripMenuItem.Name = "conversorBinárioToolStripMenuItem";
-            this.conversorBinárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.conversorBinárioToolStripMenuItem.Text = "&Conversor Binário";
-            this.conversorBinárioToolStripMenuItem.Click += new System.EventHandler(this.conversorBinárioToolStripMenuItem_Click);
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.Location = new System.Drawing.Point(266, 428);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(523, 16);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "label6";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 454);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -537,6 +555,7 @@
         private System.Windows.Forms.ToolStripMenuItem desfazerÚltimoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ferramentasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem conversorBinárioToolStripMenuItem;
+        private System.Windows.Forms.Label label6;
     }
 }
 
