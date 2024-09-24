@@ -10,7 +10,7 @@ namespace ColorLab
 
         CheckBox[] checkBoxes = new CheckBox[33];
         Label[] labels = new Label[5];
-        NumericUpDown[] numericUpDowns = new NumericUpDown[5];
+        public static NumericUpDown[] numericUpDowns = new NumericUpDown[5];
 
         string[] labelsText = { "1 bit  ->", "8 bits (1 Byte)  ->", "R  ->", "G  ->", "B  ->" };
         string[] binValue = new string[5];

@@ -524,6 +524,10 @@ namespace ColorLab
         {
             Form form_binary = new Form4();
             form_binary.Show();
+            Form4.numericUpDowns[2].Value = trackBar1.Value;
+            Form4.numericUpDowns[3].Value = trackBar2.Value;
+            Form4.numericUpDowns[4].Value = trackBar3.Value;
+
         }
 
 
