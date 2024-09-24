@@ -12,6 +12,7 @@ namespace ColorLab
         Form2 form_processando = new Form2();
         Form3 form_debug = new Form3();
         Form form_param = new Form();
+        
 
         Bitmap imagemcarregada;
         Bitmap bmp_anterior;
@@ -511,5 +512,12 @@ namespace ColorLab
             imagemcarregada = bmp_anterior;
             desfazerÚltimoToolStripMenuItem.Enabled = false;
         }
+
+        private void conversorBinárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form_binary = new Form4();
+            form_binary.Show();
+        }
+
     }
 }
