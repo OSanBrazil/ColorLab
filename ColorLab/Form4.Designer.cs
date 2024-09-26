@@ -86,6 +86,7 @@
             this.MinimizeBox = false;
             this.Name = "Form4";
             this.Text = "Form4";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form4_FormClosing);
             this.Load += new System.EventHandler(this.Form4_Load);
             this.Shown += new System.EventHandler(this.Form4_Shown);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form4_Paint);

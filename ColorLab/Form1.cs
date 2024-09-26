@@ -14,8 +14,7 @@ namespace ColorLab
         Form2 form_processando = new Form2();
         Form3 form_debug = new Form3();
         Form form_param = new Form();
-        
-
+       
         Bitmap imagemcarregada;
         Bitmap bmp_anterior;
         String arquivo;
@@ -25,12 +24,14 @@ namespace ColorLab
         const float PI = 3.141592f;
         Random rnd = new Random();
 
+        Form form_binary = new Form4();
+
         public Form1()
         {
             InitializeComponent();
             this.Text = titulo;
             openFileDialog1.Filter = "Image Files| *.BMP; *.JPG; *.JPEG; *.PNG; *.GIF;"; //(BMP/JPG/JPEG/PNG/GIF)
-
+          
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -522,14 +523,12 @@ namespace ColorLab
 
         private void conversorBinárioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form form_binary = new Form4();
+           
             form_binary.Show();
+            form_binary.Focus();
             Form4.numericUpDowns[2].Value = trackBar1.Value;
             Form4.numericUpDowns[3].Value = trackBar2.Value;
             Form4.numericUpDowns[4].Value = trackBar3.Value;
-
         }
-
-
     }
 }

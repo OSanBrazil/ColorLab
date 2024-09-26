@@ -173,5 +173,11 @@ namespace ColorLab
             // Gets the mouse position on the screen;
             // this.Text = this.PointToClient(Cursor.Position).ToString();
         }
+
+        private void Form4_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
+        }
     }
 }
