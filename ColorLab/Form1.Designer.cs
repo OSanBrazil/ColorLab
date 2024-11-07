@@ -219,6 +219,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.arquivoToolStripMenuItem,
             this.toolStripMenuItem2,
@@ -226,6 +227,7 @@
             this.ferramentasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(801, 24);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
@@ -243,21 +245,21 @@
             // carregarImagemToolStripMenuItem
             // 
             this.carregarImagemToolStripMenuItem.Name = "carregarImagemToolStripMenuItem";
-            this.carregarImagemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.carregarImagemToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.carregarImagemToolStripMenuItem.Text = "&Carregar imagem";
             this.carregarImagemToolStripMenuItem.Click += new System.EventHandler(this.carregarImagemToolStripMenuItem_Click);
             // 
             // resetToolStripMenuItem
             // 
             this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
-            this.resetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.resetToolStripMenuItem.Text = "&Re&set";
             this.resetToolStripMenuItem.Click += new System.EventHandler(this.resetToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.sairToolStripMenuItem.Text = "Sai&r";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -496,7 +498,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pictureBox1);
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(817, 493);
+            this.MinimumSize = new System.Drawing.Size(816, 492);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

@@ -531,5 +531,6 @@ namespace ColorLab
             Form4.numericUpDowns[3].Value = trackBar2.Value;
             Form4.numericUpDowns[4].Value = trackBar3.Value;
         }
+
     }
 }
